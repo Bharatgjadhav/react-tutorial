@@ -1,32 +1,19 @@
 import React from "react";
-  import ReactDOM from "react-dom";
- 
+import ReactDOM from "react-dom";
+
 const Hello = (props) => {
+  const bornYear = () => {
+    const yearNow = new Date().getFullYear()
+    return yearNow - props.age
+  }
+
   return (
     <div>
-      <p>Hello world {props.name}</p>
+      <p>
+        Hello {props.name}, you are {props.age} years old
+      </p>
+      <p>So you were probably born in {bornYear()}</p>
     </div>
   )
 }
-
-const Footer = () => {
-  return (
-    <div>
-      greeting app created by <a href="https://github.com/mluukkai">mluukkai</a>
-    </div>
-  )
-}
-
-const App = () => {
-  return [
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="sunidi jadhav"/>
-      <Hello name="bharat jadhav"/>
-      <Footer/>
-    </div>
-  ]
-  
-}
-
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<Hello />, document.getElementById('root'))
